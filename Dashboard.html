@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyDoc homepage</title>
+	<link rel="stylesheet" type="text/css" href="MyDoc.css">
+</head>
+<body>
+	<!--Top-header division-->
+	<div class="top">
+	<div class="Top-header">
+		<div class="MyDoc-logo">
+			<a href="Dashboard.html">
+				<h1 class="MyDoc-logo">My<span class="Doc-span">Doc</span></h1>
+			</a>
+		</div>
+		<div class="Top-header-text">
+			<h4>My Health...My Wealth</h4>
+		</div>
+	</div>
+	<!--Topnav-bar division-->
+	<div class="Topnav-bar">
+		<div class="Topnav-left">
+			<span onclick="openNav()" class="nav-toggler" id="toggler">☰</span>
+			<span class="nav-toggler-close" onclick="closeNav()" id="close-button">☰</span>
+			<form class="Topnav-bar-form">
+			<input type="search" placeholder="search..." name="page-search">
+			<input type="submit" value="search">
+			</form>
+		</div>
+		<div class="Topnav-right">
+			<button><img src="plugins\user.png" class="icons"></button>
+			<button><img src="plugins\mail.png" class="icons"></button>
+		</div>
+	</div>
+	</div>
+	<!--Page-content division-->
+	<div class="Page" id="main-page">
+		<div id="mySidenav" class="sidenav">
+			<div class="closebtn-div">
+				<button href="javascript:void(0)" class="closebtn" onclick="closeNav()" id="close-button">&times;</button>
+			</div>
+  			<a href="#">About</a>
+  			<a href="#">Services</a>
+  			<a href="#">Clients</a>
+  			<a href="#">Contact</a>
+		</div>
+		<div id="main" class="Page-content">
+			<img src="dash.png" style="width: 250px; height: 450px;">
+		</div>
+	</div>
+	<!--Footer-->
+	<footer class="Footer">
+		
+	</footer>
+  <script src="MyDoc.js"></script>
+</body>
+</html>
