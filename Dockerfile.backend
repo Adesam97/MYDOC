@@ -1,0 +1,26 @@
+# Use the official Python base image
+FROM python:3.9-alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Create a simple Python HTTP server script
+RUN echo "from http.server import SimpleHTTPRequestHandler, HTTPServer\n\
+import sys\n\
+class Handler(SimpleHTTPRequestHandler):\n\
+    def do_GET(self):\n\
+        self.send_response(200)\n\
+        self.send_header('Content-type', 'text/html')\n\
+        self.end_headers()\n\
+        self.wfile.write(b'Hello, World!')\n\
+\n\
+if __name__ == '__main__':\n\
+    server = HTTPServer(('0.0.0.0', 5000), Handler)\n\
+    print('Starting server on port 5000...')\n\
+    server.serve_forever()" > server.py
+
+# Expose port 5000 to the outside world
+EXPOSE 5000
+
+# Start the Python HTTP server
+CMD ["python3", "server.py"]
