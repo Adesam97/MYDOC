@@ -6,7 +6,6 @@ WORKDIR /app
 
 # Create a simple Python HTTP server script
 RUN echo "from http.server import SimpleHTTPRequestHandler, HTTPServer\n\
-import sys\n\
 class Handler(SimpleHTTPRequestHandler):\n\
     def do_GET(self):\n\
         self.send_response(200)\n\
