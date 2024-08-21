@@ -3,6 +3,21 @@
 <head>
 	<title>MyDoc homepage</title>
 	<link rel="stylesheet" type="text/css" href="MyDoc.css">
+	<script>
+		async function fetchBackendOutput() {
+			try {
+				const response = await fetch('http://localhost:8000');
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+				const data = await response.text();
+				document.getElementById('output').textContent = data;
+			} catch (error) {
+				console.error('Error:', error);
+				document.getElementById('output').textContent = 'Error fetching data from backend';
+			}
+		}
+	</script>
 </head>
 <body>
 	<!--Top-header division-->
@@ -50,7 +65,11 @@
 	</div>
 	<!--Footer-->
 	<footer class="Footer">
-		
+		<div onload="fetchBackendOutput()">
+			<h1>Backend Container Output</h1>
+			<p id="output">Loading...</p>
+			<button onclick="fetchBackendOutput()">Refresh</button>
+		</div>
 	</footer>
   <script src="MyDoc.js"></script>
 </body>
