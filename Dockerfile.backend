@@ -1,25 +1,14 @@
 # Use the official Python base image
 FROM python:3.9-alpine
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Create a simple Python HTTP server script
-RUN echo "from http.server import SimpleHTTPRequestHandler, HTTPServer\n\
-class Handler(SimpleHTTPRequestHandler):\n\
-    def do_GET(self):\n\
-        self.send_response(200)\n\
-        self.send_header('Content-type', 'text/html')\n\
-        self.end_headers()\n\
-        self.wfile.write(b'Hello, Fikunmi!')\n\
-\n\
-if __name__ == '__main__':\n\
-    server = HTTPServer(('0.0.0.0', 5000), Handler)\n\
-    print('Starting server on port 5000...')\n\
-    server.serve_forever()" > server.py
+# Copy the Python script into the container
+COPY server.py .
 
-# Expose port 5000 to the outside world
-EXPOSE 5000
+# Expose the port the app runs on
+EXPOSE 8000
 
-# Start the Python HTTP server
-CMD ["python3", "server.py"]
+# Run the Python script when the container launches
+CMD ["python", "server.py"]
