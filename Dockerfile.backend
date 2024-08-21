@@ -12,7 +12,7 @@ class Handler(SimpleHTTPRequestHandler):\n\
         self.send_response(200)\n\
         self.send_header('Content-type', 'text/html')\n\
         self.end_headers()\n\
-        self.wfile.write(b'Hello, World!')\n\
+        self.wfile.write(b'Hello, Fikunmi!')\n\
 \n\
 if __name__ == '__main__':\n\
     server = HTTPServer(('0.0.0.0', 5000), Handler)\n\
