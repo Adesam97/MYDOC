@@ -6,7 +6,7 @@
 	<script>
 		async function fetchBackendOutput() {
 			try {
-				const response = await fetch('http://13.60.163.64/:8000');
+				const response = await fetch('http://0.0.0.0:8000');
 				if (!response.ok) {
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
